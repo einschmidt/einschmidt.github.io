@@ -9,5 +9,6 @@
       "updateTypes": ["minor", "patch", "pin"],
       "packagePatterns": ["^\\.github/workflows/.*\\.ya?ml$"]
     }
-  ]
+  ],
+  "automerge": true
 }

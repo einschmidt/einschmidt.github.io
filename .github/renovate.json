@@ -3,5 +3,11 @@
   "extends": ["config:base"],
   "npm": {
     "minimumReleaseAge": "3 days"
-  }
+  },
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin"],
+      "packagePatterns": ["^\\.github/workflows/.*\\.ya?ml$"]
+    }
+  ]
 }

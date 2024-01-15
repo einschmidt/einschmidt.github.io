@@ -1,14 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
-  "npm": {
-    "minimumReleaseAge": "3 days"
-  },
+  "rebaseWhen": "behind-base-branch",
+  "dependencyDashboard": true,
+  "labels": ["dependencies", "no-stale"],
+  "commitMessagePrefix": "⬆️",
+  "commitMessageTopic": "{{depName}}",
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch", "pin"],
-      "packagePatterns": ["^\\.github/workflows/.*\\.ya?ml$"]
+      "matchManagers": ["github-actions"],
+      "addLabels": ["github_actions"],
+      "rangeStrategy": "pin"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
     }
-  ],
-  "automerge": true
+  ]
 }
